@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+VERSION=1.0.0
+
 function build() {
   mkdir -p dist
   local os=$1
@@ -14,7 +16,7 @@ function build() {
 
   GOOS=$os GOARCH=$arch \
     go build \
-    -o dist/${os}_${arch}_${target}${ext} \
+    -o dist/${os}_${arch}_${VERSION}_${target}${ext} \
     $target.go
 }
 
