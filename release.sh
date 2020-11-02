@@ -14,6 +14,8 @@ function build() {
     ext=.exe
   fi
 
+  echo build os=$os arch=$arch
+
   GOOS=$os GOARCH=$arch \
     go build \
     -o dist/${os}_${arch}_${VERSION}_${target}${ext} \
