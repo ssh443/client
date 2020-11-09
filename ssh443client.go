@@ -19,13 +19,21 @@ type args struct {
 
 func cliArgs() args {
   address := flag.String("address", "", "<host>:<port>")
-  auth := flag.String("auth", "", "<user>:<pass>")
+  auth := flag.String("auth", "", "<token>:<secret>")
   proxy := flag.String("proxy", "", "<host>:<port>")
   http := flag.Bool("http", false, "use http")
 
+  defaultProxy := "proxy.ssh443.com:443"
+
   flag.Parse()
 
-  if (*address == "" || *auth == "" || *proxy == "") {
+  proxyAddress := *proxy
+
+  if (proxyAddress == "") {
+    proxyAddress = defaultProxy
+  }
+
+  if (*address == "" || *auth == "" ) {
     flag.Usage()
     os.Exit(2)
   }
@@ -33,7 +41,7 @@ func cliArgs() args {
   return args{
     address: *address,
     auth: *auth,
-    proxy: *proxy,
+    proxy: proxyAddress,
     http: *http,
   }
 }
