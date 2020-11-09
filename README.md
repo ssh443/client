@@ -1,8 +1,8 @@
 # SSH443 Client
-The https proxy client for [https://www.ssh443.com/]()
+The https proxy client for [](https://www.ssh443.com/)
 
 ### Setup
-- Install golang [https://golang.org/doc/install]()
+- Install golang [](https://golang.org/doc/install)
 - Build the binary: `go build ssh443client.go`
 - Move the `ssh443client` into your `$PATH`
 
