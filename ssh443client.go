@@ -22,11 +22,9 @@ func cliArgs() args {
   auth := flag.String("auth", "", "<token>:<secret>")
   proxy := flag.String("proxy", "", "<host>:<port>")
   http := flag.Bool("http", false, "use http")
-
   defaultProxy := "proxy.ssh443.com:443"
 
   flag.Parse()
-
   proxyAddress := *proxy
 
   if (proxyAddress == "") {
